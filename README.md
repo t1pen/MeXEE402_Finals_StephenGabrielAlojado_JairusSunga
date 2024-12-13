@@ -246,3 +246,5 @@ cv2_imshow(img)
 - https://www.facebook.com/stephen.alojado/photos_by
 - https://m.facebook.com/story.php/?story_fbid=3391156477616600&id=498454503553493
 - https://noelasinasblog.wordpress.com/2023/12/22/16004/
+
+### Part 2: Applying Morphological Transformation for Enhancing PCB Traces
