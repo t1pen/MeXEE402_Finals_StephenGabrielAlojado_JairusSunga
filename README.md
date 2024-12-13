@@ -37,11 +37,24 @@
 ## Conclusion
 
 ## Additional Materials
+
+**Navigating to OpenCV Folder**
+
 ```python
 %cd OpenCV/
 from IPython.display import clear_output
 clear_output()
 ```
+
+%cd OpenCV/:
+This command changes the current working directory of the notebook to a folder named OpenCV.
+Note: Ensure the folder OpenCV exists in the current path before executing the command.
+
+from IPython.display import clear_output:
+Imports the clear_output function from the IPython.display module, which allows clearing outputs in the notebook.
+
+clear_output():
+Clears all previous outputs in the notebook to declutter the output area.
 
 
 - PCB Dat
