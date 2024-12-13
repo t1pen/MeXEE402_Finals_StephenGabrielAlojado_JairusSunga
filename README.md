@@ -114,7 +114,12 @@ display = np.hstack((canny_image,dilate_image,erode_image))
 cv2_imshow(display)
 ```
 
+![Edge Detection](https://github.com/user-attachments/assets/5bfad25b-ce64-4cec-8387-4f4e666f6d05)
+
+
 **Lesson 3: Image Manipulation**
+
+- Applies a non-local means denoising filter
 
 ```python
 import cv2
@@ -127,6 +132,36 @@ dst = cv2.fastNlMeansDenoisingColored(image, None, 15, 20, 7, 15)
 
 display = np.hstack((image, dst))
 cv2_imshow(display)
+```
+
+![Image Manipulation](https://github.com/user-attachments/assets/432f297b-e3ae-46af-a82e-5478670fb032)
+
+
+**Lesson 4: Drawing Shapes and Writing Text on Images**
+
+```python
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+
+img = np.zeros((512, 512, 3), np.uint8)
+#uint8: 0 to 255
+
+# Drawing Function
+# Draw a Ellipse
+cv2.ellipse(img, (256, 256), (100, 50), 45, 0, 360, (255, 0, 255), 3)
+# Draw a Polygon
+# Define points of the polygon
+pts = np.array([[100, 300], [200, 250], [300, 300], [250, 400], [150, 400]], np.int32)
+pts = pts.reshape((-1, 1, 2))
+cv2.fillPoly(img, [pts], (0, 255, 255))
+#Draw a Dashed Line
+for i in range(50, 450, 40):
+    cv2.line(img, (i, 50), (i + 20, 50), (255, 255, 0), 3)
+#Write a Text
+cv2.putText(img,"Alojado_Sunga",(12,480),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),3)
+# Displaying the Image
+cv2_imshow(img)
 ```
 
 
