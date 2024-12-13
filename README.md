@@ -91,52 +91,19 @@ cv2_imshow(HSV)
 
 ### Part 1: 16 Basic OpenCV Projects
 
-[butterfly: Lesson 1 & 2](https://www.vecteezy.com/free-photos/real-butterfly)
+[**butterfly: Lesson 1 & 2**](https://www.vecteezy.com/free-photos/real-butterfly)
 
-- Lesson 3: Image Manipulation
-[  **Bear: Lesson 3**](https://www.pinterest.com/pin/784118985094103174/)
+[**Bear: Lesson 3**](https://www.pinterest.com/pin/784118985094103174/)
 
-![Bear](https://github.com/user-attachments/assets/68ef1a19-5dc4-4002-9ce9-fd7b7cc4bd8e)
+[ **shapess: OpenCv Part2. Lesson 1 & 2**](https://medium.com/illumination/play-a-simple-game-that-proves-telepathy-is-real-ff8f864eac93)
 
-**Intermediate Exercises**
+[  **group: OpenCV Part2. Lesson 2**](https://www.cleanpng.com/png-people-business-charleston-denver-news-3920171/)
 
-- Lesson 1: Color Detection and Lesson 3: Shape Detection
-  **shapess**
+[**Jairus' Photos**](https://www.facebook.com/jairus.sunga23/photos_by)
 
-![shapess](https://github.com/user-attachments/assets/2ef7b4a3-9bdf-4329-b5a7-f53708bdfcec)
+[**Stephen's Photos**](https://www.facebook.com/stephen.alojado/photos_by)
 
-- Lesson 2: Face Detection
-  **group**
+[**Kathryn's 1st Photo**](https://m.facebook.com/story.php/?story_fbid=3391156477616600&id=498454503553493)
+https://m.facebook.com/story.php/?story_fbid=3391156477616600&id=498454503553493
 
-![group](https://github.com/user-attachments/assets/04281f69-f92d-4165-b323-63df8d3a817b)
-
-
-- Face Recognition
-
-*Known Faces*
-
-**Jairus**
-
-![Jairus](https://github.com/user-attachments/assets/d1dcebdf-9d9a-437d-a430-7e4ed52119e0)
-
-**Stephen**
-
-![Stephen](https://github.com/user-attachments/assets/7d098dad-97d8-4045-828c-b0b2859243d6)
-
-**Kathryn**
-
-![Kathryn](https://github.com/user-attachments/assets/58795774-a3d3-4ea7-928a-5524f0f65c8d)
-
-*Unknown Faces*
-
-**Unknown_Jai**
-
-![Unknown_Jai](https://github.com/user-attachments/assets/6ef5b267-4b5a-4a44-9b4d-650521150b6f)
-
-**Unknown_Step**
-
-![Unknown_step](https://github.com/user-attachments/assets/0b6904b2-01a8-496e-9bd0-867b6f7d104e)
-
-**Unknown_Kat**
-
-![Unknown_Kat](https://github.com/user-attachments/assets/a20d9c50-2cc5-4d76-a9de-12d3b2cedc66)
+[**Kathryn's 2nd Photo**](https://noelasinasblog.wordpress.com/2023/12/22/16004/)
