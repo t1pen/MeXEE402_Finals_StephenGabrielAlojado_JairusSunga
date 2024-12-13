@@ -38,6 +38,13 @@
 
 ## Additional Materials
 
+
+
+- PCB Dat
+
+
+## References
+
 **Part 1**
 
 - Lesson 1: Changing Image's Color Profiles and Lesson 2: Edge Detection
@@ -92,15 +99,3 @@
 **Unknown_Kat**
 
 ![Unknown_Kat](https://github.com/user-attachments/assets/a20d9c50-2cc5-4d76-a9de-12d3b2cedc66)
-
-
-
-
-
-
-
-
-
-
-
-- PCB Dat
