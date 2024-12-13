@@ -27,3 +27,15 @@
   - The main objective is to utilize morphological operations, specifically closing, to improve the quality and accuracy of PCB pattern recognition during automated inspection processes.
   - Morphological closing, which combines dilation followed by erosion, is employed to fill small gaps, eliminate noise, and enhance the clarity of circuit features.
   - The project applies morphological closing to PCB images to improve the visibility of circuit patterns, making it easier to detect potential defects or irregularities.
+
+## Project Methods
+
+### Part 1: 16 Basic OpenCV Projects
+
+### Part 2: Applying Morphological Transformation for Enhancing PCB Traces
+
+## Conclusion
+
+## Additional Materials
+
+- PCB Dat
