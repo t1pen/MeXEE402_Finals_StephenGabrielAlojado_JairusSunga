@@ -377,6 +377,9 @@ for (top,right, bottom, left), face_encoding in zip(face_locations, face_encodin
 cv2_imshow(unknown_image_to_draw)
 ```
 
+![Face Recognition](https://github.com/user-attachments/assets/090e8336-10e8-4dc4-a4fb-bcc3009f3e61)
+
+
 - loads an unknown image, detects faces, and compares the face encodings with known face profiles.
 
 
