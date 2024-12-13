@@ -100,12 +100,16 @@ kernel = np.ones((5,5), np.uint8)
 dilate_image = cv2.dilate(canny_image, kernel, iterations=1)
 ```
 
-# cv2_imshow(dilate_image)
-#Erosion
-# kernel = np.ones((1,1), np.uint8)
+- Applies erosion to the dilated image using a kernel,
+
+```python
 erode_image = cv2.erode(dilate_image,kernel, iterations=1)
 # cv2_imshow(erode_image)
+```
 
+- Display
+
+```python
 display = np.hstack((canny_image,dilate_image,erode_image))
 cv2_imshow(display)
 ```
