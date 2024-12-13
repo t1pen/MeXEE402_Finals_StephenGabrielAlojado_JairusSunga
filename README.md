@@ -50,9 +50,15 @@
 
 **Part 2**
 
-- Lesson 1: Color Detection
+- Lesson 1: Color Detection and Lesson 3: Shape Detection
 
 ![shapess](https://github.com/user-attachments/assets/2ef7b4a3-9bdf-4329-b5a7-f53708bdfcec)
+
+- Lesson 2: Face Detection
+
+![group](https://github.com/user-attachments/assets/04281f69-f92d-4165-b323-63df8d3a817b)
+
+- Face Recognition
 
 
 
