@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/83b3ba6f-e0e2-4a93-badc-5eaf035d01f1)<h1 align="center">Computer Vision using OpenCV</h1>
+<h1 align="center">Computer Vision using OpenCV</h1>
 <p align="center"><b>Final Requirement for MexEE 402 - Electives 2
 <br> Prepared by: Stephen Gabriel S. Alojado and Jairus C. Sunga</b></p>
 
@@ -718,8 +718,7 @@ cv2.destroyAllWindows()
 
 **GUI of the Morphological Transformation in a specific Region of Interest**
 
-
-
+![image](https://github.com/user-attachments/assets/0e497504-9203-4108-9a08-6177dff3d716)
 
 ## References
 
