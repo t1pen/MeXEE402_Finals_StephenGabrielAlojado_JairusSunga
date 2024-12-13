@@ -28,7 +28,28 @@
 
 ## III. Project Methods
 
+**Data Preparation**
+- The data of the PCB Traces was gathered from the kaggle. The proponents search a PCB dataset that is in black in white format for much easier Morphological processing.
 
+**Morphological Dilation**
+- This is the tasked assigned to us and we applied it in our dataset. The code below is used to use images with "test" in their names *(those are data with PCB Defects)*.
+
+```python
+# Step 1: Specify the folder path
+folder_path = "00041"
+
+# Step 2: List and filter files with "test" in their name
+all_files = os.listdir(folder_path)
+test_files = [file for file in all_files if "test" in file]
+test_files = test_files[:5]
+```
+- We load only ten files for processing with this function `cv2.dilate()`. This will make the dilation process depending on the thresholds, kernels, and iterations that was set.
+
+**Morphological Closing**
+- Morphological Closing is done by Erosion then Dilation. This was done by running `cv2.erode()` to the original image and the eroded image was process using the `cv2.dilate()` for the morphological closing operation to be done.
+
+**Region of Interest**
+- Due to some of the images needed separate operation of erosion and dilation *(depending on the defect)*, we create a code for selecting specific region of interest *(ROI)* for the morphological transformation operations. This was done through the use of the funciton `cv2.selectROI()`. With the program we did we can select the ROI multiple times before saving the final processed image. 
 
 ## IV. Conclusion
 
