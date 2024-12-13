@@ -1,4 +1,4 @@
-<h1 align="center">Computer Vision using OpenCV</h1>
+![image](https://github.com/user-attachments/assets/83b3ba6f-e0e2-4a93-badc-5eaf035d01f1)<h1 align="center">Computer Vision using OpenCV</h1>
 <p align="center"><b>Final Requirement for MexEE 402 - Electives 2
 <br> Prepared by: Stephen Gabriel S. Alojado and Jairus C. Sunga</b></p>
 
@@ -389,6 +389,74 @@ for test_file in test_files:
     plt.show()
 ```
 ![image](https://github.com/t1pen/MeXEE402_Finals_StephenGabrielAlojado_JairusSunga/blob/main/Revised%20Topic/Outputs/1A.png?raw=true)
+![image](https://github.com/user-attachments/assets/edd58779-715f-40ec-a2f1-ad378c47f9ac)
+![image](https://github.com/user-attachments/assets/a9f2271b-a01f-44c0-964b-4238dc888f2f)
+![image](https://github.com/user-attachments/assets/625aef60-a21c-47c5-8458-f1cf2402bebb)
+![image](https://github.com/user-attachments/assets/5750fdbc-630b-42f6-86b1-cbf1c177057d)
+
+**2. Global Processing Morphological Closing**
+```python
+import os
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Step 1: Specify the folder path
+folder_path = "00041"
+
+# Step 2: List and filter files with "test" in their name
+all_files = os.listdir(folder_path)
+test_files = [file for file in all_files if "test" in file]
+test_files = test_files[:5]
+
+# Step 3: Define the kernel for morphological operations
+kernel = np.ones((3, 3), np.uint8)
+
+# Step 4: Process each filtered file
+for test_file in test_files:
+    file_path = os.path.join(folder_path, test_file)
+    
+    # Read the image in grayscale
+    image = cv2.imread(file_path, cv2.IMREAD_GRAYSCALE)
+    if image is None:
+        print(f"Failed to read image: {test_file}")
+        continue
+    
+    # Resize the image for manageability
+    resized_image = cv2.resize(image, (0, 0), fx=0.5, fy=0.5)
+
+    # Apply erosion to reduce short circuits
+    eroded_image = cv2.erode(resized_image, kernel, iterations=3)
+
+    # Apply dilation to enhance the traces
+    cleaned_image = cv2.dilate(eroded_image, kernel, iterations=3)
+
+    # Step 5: Display the results
+    plt.figure(figsize=(12, 6))
+    plt.subplot(1, 3, 1)
+    plt.imshow(resized_image, cmap='gray')
+    plt.title(f"Original: {test_file}")
+    plt.axis('off')
+
+    plt.subplot(1, 3, 2)
+    plt.imshow(eroded_image, cmap='gray')
+    plt.title("After Erosion")
+    plt.axis('off')
+
+    plt.subplot(1, 3, 3)
+    plt.imshow(cleaned_image, cmap='gray')
+    plt.title("Cleaned Image")
+    plt.axis('off')
+
+    plt.show()
+```
+![image](https://github.com/user-attachments/assets/d5d14345-1f12-4861-a046-5feb56d7e530)
+![image](https://github.com/user-attachments/assets/2add605b-27c1-43aa-91d7-154ffbaf972f)
+![image](https://github.com/user-attachments/assets/049f8be6-07ea-4c2d-8c55-f57691cc0e33)
+![image](https://github.com/user-attachments/assets/139fb8ca-7602-4cb6-83f3-550003003516)
+![image](https://github.com/user-attachments/assets/d20e8c47-d7c2-4752-bbac-e4a0ca8d92df)
+
+
 
 
 
