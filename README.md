@@ -231,8 +231,6 @@ cv2_imshow(img)
 
 
 
-- PCB Dat
-
 
 ## References
 
@@ -248,3 +246,6 @@ cv2_imshow(img)
 - https://noelasinasblog.wordpress.com/2023/12/22/16004/
 
 ### Part 2: Applying Morphological Transformation for Enhancing PCB Traces
+- https://www.kaggle.com/datasets/rkuo2000/pcbdata
+- https://www.mathworks.com/help/images/morphological-dilation-and-erosion.html
+
