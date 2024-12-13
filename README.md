@@ -7,3 +7,6 @@
 ## Introduction
 
 **16 Basic OpenCV**
+  - OpenCV or the Open spurve Computer Vision Library is one of the most widely used libraries for computer vision tasks. It provides a comprehensive suite of tools for performing operations such as image processing, object detection, and video analysis. With its wide range of functionalities, OpenCV has become an essential resource for researchers, engineers, and developers working in fields that require visual data analysis.
+
+**
