@@ -166,6 +166,9 @@ cv2.putText(img,"Alojado_Sunga",(12,480),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),3)
 cv2_imshow(img)
 ```
 
+![Drawing Shapes and Writing Text on Images](https://github.com/user-attachments/assets/d22fc04a-b7d9-4792-b8b5-ecb3b5d64be8)
+
+
 
 ### Part 2: Intermediate Exercises
 
@@ -223,6 +226,8 @@ for (x,y,w,h) in faces:
 
 cv2_imshow(img)
 ```
+
+![Face Detection](https://github.com/user-attachments/assets/4aaec6e6-e098-4159-8474-dbcda1b37abf)
 
 
 
