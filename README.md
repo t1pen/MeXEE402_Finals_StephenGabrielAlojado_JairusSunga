@@ -4,7 +4,7 @@
 <p align="center"><b>Finals for MexEE 402 - Electives 2
 <br> Prepared by: Stephen Gabriel S. Alojado and Jairus C. Sunga</b></p>
 
-## Introduction
+## I. Introduction
 
 ### 16 Basic OpenCV
   - OpenCV or the Open spurve Computer Vision Library is one of the most widely used libraries for computer vision tasks. It provides a comprehensive suite of tools for performing operations such as image processing, object detection, and video analysis. With its wide range of functionalities, OpenCV has become an essential resource for researchers, engineers, and developers working in fields that require visual data analysis.
@@ -17,7 +17,7 @@
 
   - Morphological image processing, which involves operations like dilation and closing, plays a key role in enhancing the quality of PCB images. These operations help highlight relevant features, such as circuit lines, while minimizing noise and unwanted artifacts. In particular, morphological closing is an essential technique that helps smooth the boundaries of the objects in the image, which is beneficial in PCB inspection tasks where precise detection of circuit patterns is critical.
 
-## Abstract
+## II. Abstract
 ### 16 Basic OpenCV
   - This project demonstrates the application of fundamental image processing techniques using OpenCV, with a focus on transforming and analyzing image data through various operations.
   - The main objective is to showcase key tasks such as changing an image's color profiles, performing edge detection, manipulating images, and detecting specific features like faces and shapes.
@@ -28,15 +28,15 @@
   - Morphological closing, which combines dilation followed by erosion, is employed to fill small gaps, eliminate noise, and enhance the clarity of circuit features.
   - The project applies morphological closing to PCB images to improve the visibility of circuit patterns, making it easier to detect potential defects or irregularities.
 
-## Project Methods
+## III. Project Methods
 
 ### Part 1: 16 Basic OpenCV Projects
 
 ### Part 2: Applying Morphological Transformation for Enhancing PCB Traces
 
-## Conclusion
+## IV. Conclusion
 
-## Additional Materials
+## V. Additional Materials
 
 **Navigating to OpenCV Folder**
 
