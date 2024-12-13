@@ -238,18 +238,11 @@ cv2_imshow(img)
 
 ### Part 1: 16 Basic OpenCV Projects
 
-[**butterfly: Lesson 1 & 2**](https://www.vecteezy.com/free-photos/real-butterfly)
-
-[**Bear: Lesson 3**](https://www.pinterest.com/pin/784118985094103174/)
-
-[ **shapess: OpenCv Part2. Lesson 1 & 2**](https://medium.com/illumination/play-a-simple-game-that-proves-telepathy-is-real-ff8f864eac93)
-
-[  **group: OpenCV Part2. Lesson 2**](https://www.cleanpng.com/png-people-business-charleston-denver-news-3920171/)
-
-[**Jairus' Photos**](https://www.facebook.com/jairus.sunga23/photos_by)
-
-[**Stephen's Photos**](https://www.facebook.com/stephen.alojado/photos_by)
-
-[**Kathryn's 1st Photo**](https://m.facebook.com/story.php/?story_fbid=3391156477616600&id=498454503553493)
-
-[**Kathryn's 2nd Photo**](https://noelasinasblog.wordpress.com/2023/12/22/16004/)
+- https://www.vecteezy.com/free-photos/real-butterfly
+- https://www.pinterest.com/pin/784118985094103174/
+- https://medium.com/illumination/play-a-simple-game-that-proves-telepathy-is-real-ff8f864eac93
+- https://www.cleanpng.com/png-people-business-charleston-denver-news-3920171/
+- https://www.facebook.com/jairus.sunga23/photos_by
+- https://www.facebook.com/stephen.alojado/photos_by
+- https://m.facebook.com/story.php/?story_fbid=3391156477616600&id=498454503553493
+- https://noelasinasblog.wordpress.com/2023/12/22/16004/
