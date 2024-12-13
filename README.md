@@ -43,20 +43,24 @@
 - Lesson 1: Changing Image's Color Profiles and Lesson 2: Edge Detection
   
 ![butterfly](https://github.com/user-attachments/assets/1c211bc9-9922-4678-b7eb-37da1fe3e93a)
+**butterfly**
 
 - Lesson 3: Image Manipulation
 
 ![Bear](https://github.com/user-attachments/assets/68ef1a19-5dc4-4002-9ce9-fd7b7cc4bd8e)
+**Bear**
 
 **Part 2**
 
 - Lesson 1: Color Detection and Lesson 3: Shape Detection
 
 ![shapess](https://github.com/user-attachments/assets/2ef7b4a3-9bdf-4329-b5a7-f53708bdfcec)
+**shapess**
 
 - Lesson 2: Face Detection
 
 ![group](https://github.com/user-attachments/assets/04281f69-f92d-4165-b323-63df8d3a817b)
+**group**
 
 - Face Recognition
 
