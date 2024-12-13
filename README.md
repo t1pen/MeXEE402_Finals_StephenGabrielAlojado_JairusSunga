@@ -104,6 +104,5 @@ cv2_imshow(HSV)
 [**Stephen's Photos**](https://www.facebook.com/stephen.alojado/photos_by)
 
 [**Kathryn's 1st Photo**](https://m.facebook.com/story.php/?story_fbid=3391156477616600&id=498454503553493)
-https://m.facebook.com/story.php/?story_fbid=3391156477616600&id=498454503553493
 
 [**Kathryn's 2nd Photo**](https://noelasinasblog.wordpress.com/2023/12/22/16004/)
