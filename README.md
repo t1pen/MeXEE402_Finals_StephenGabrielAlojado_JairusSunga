@@ -38,7 +38,9 @@
 
 ## Additional Materials
 ```python
-a
+%cd OpenCV/
+from IPython.display import clear_output
+clear_output()
 ```
 
 
