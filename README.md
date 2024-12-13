@@ -230,6 +230,15 @@ cv2_imshow(img)
 ![Face Detection](https://github.com/user-attachments/assets/4aaec6e6-e098-4159-8474-dbcda1b37abf)
 
 
+**Lesson 3: Shape Detection**
+
+
+
+
+![image](https://github.com/user-attachments/assets/2d803592-0e13-43ec-ab7e-2dc8b939d896)
+
+
+
 
 
 ## References
