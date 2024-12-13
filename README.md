@@ -57,6 +57,32 @@ Imports the clear_output function from the IPython.display module, which allows 
 - `clear_output():`
 Clears all previous outputs in the notebook to declutter the output area.
 
+**Lesson 1: Changing Image's Color Profiles**
+
+```python
+aimport cv2
+from google.colab.patches import cv2_imshow
+
+#colorful image - 3 channels
+image = cv2.imread("Images/butterfly.jpeg")
+print(image.shape)
+
+#grayscale image
+gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+print(gray.shape)
+
+#HSV Image
+HSV = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+print(HSV.shape)
+cv2_imshow(HSV)
+```
+
+![Changing Image's Color Profiles](https://github.com/user-attachments/assets/8e8ba0f9-4c01-4d11-91df-e9256228a669)
+
+- Image Conversion: The code loads an image in BGR format and converts it into two other color profiles: grayscale (single channel) and HSV (Hue, Saturation, Value) with 3 channels.
+- Shape Dimensions: Outputs the dimensions of each image format to verify the changes, e.g., BGR/HSV have 3 channels, while grayscale has 1.
+- Image Display: Uses cv2_imshow to visualize the HSV image in Google Colab.
+
 
 - PCB Dat
 
