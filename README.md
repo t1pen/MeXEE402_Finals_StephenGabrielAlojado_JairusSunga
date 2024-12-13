@@ -94,7 +94,7 @@ cv2_imshow(HSV)
 [butterfly: Lesson 1 & 2](https://www.vecteezy.com/free-photos/real-butterfly)
 
 - Lesson 3: Image Manipulation
-  **Bear**
+[  **Bear: Lesson 3**](https://www.pinterest.com/pin/784118985094103174/)
 
 ![Bear](https://github.com/user-attachments/assets/68ef1a19-5dc4-4002-9ce9-fd7b7cc4bd8e)
 
