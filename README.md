@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/83b3ba6f-e0e2-4a93-badc-5eaf035d01f1)<h1 align="center">Computer Vision using OpenCV</h1>
+<h1 align="center">Computer Vision using OpenCV</h1>
 <p align="center"><b>Final Requirement for MexEE 402 - Electives 2
 <br> Prepared by: Stephen Gabriel S. Alojado and Jairus C. Sunga</b></p>
 
