@@ -47,7 +47,7 @@ clear_output()
 ```
 
 
-`%cd OpenCV/:`
+- `%cd OpenCV/:`
 This command changes the current working directory of the notebook to a folder named OpenCV.
 Note: Ensure the folder OpenCV exists in the current path before executing the command.
 
