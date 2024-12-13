@@ -232,6 +232,81 @@ cv2_imshow(img)
 
 **Lesson 3: Shape Detection**
 
+```python
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+
+img = cv2.imread("Images/shapess.png")
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+
+ret, thresh = cv2.threshold(gray,50,255,1)
+contours,h = cv2.findContours(thresh,1,2)
+# cv2_imshow(thresh)
+for cnt in contours:
+  approx = cv2.approxPolyDP(cnt,0.01*cv2.arcLength(cnt,True),True)
+  n = len(approx)
+  if n==4:
+    # this is a Square
+    print("We found a square")
+    cv2.drawContours(img,[cnt],0,(255,255,0),3)
+  elif n>9:
+    # this is a circle
+    print("We found a circle")
+    cv2.drawContours(img,[cnt],0,(0,255,255),3)
+  elif n==3:
+    # this is a triangle
+    print("We found a triangle")
+    cv2.drawContours(img,[cnt],0,(0,255,0),3)
+  elif n==6:
+    # this is a hexagon
+    print("We have a hexagon here")
+    cv2.drawContours(img,[cnt],0,255,10)
+cv2_imshow(img)
+```
+
+![Shape Detection](https://github.com/user-attachments/assets/3ff19693-9843-41c7-b76f-136bbb667c74)
+
+
+**Part 3: Projects**
+
+```python
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+
+ball = []
+cap = cv2.VideoCapture("videos/video.mp4")
+out = cv2.VideoWriter('balloutput.avi',cv2.VideoWriter_fourcc('M','J','P','G'),10,(1920,1080))
+while cap.isOpened():
+  ret, frame = cap.read()
+  if ret is False:
+    break
+  hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+  lower_hue = np.array([65,0,0])
+  upper_hue = np.array([110, 255,255])
+  mask = cv2.inRange(hsv,lower_hue, upper_hue)
+
+  (contours,_)=cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+
+  center = None
+
+  if len(contours)>0:
+    c = max(contours, key=cv2.contourArea)
+    ((x,y),radius) = cv2.minEnclosingCircle(c)
+    M = cv2.moments(c)
+    try:
+      center = (int(M["m10"]/M["m00"]), int(M["m01"]/M["m00"]))
+      cv2.circle(frame, center,10, (255,0,0),-1)
+      ball.append(center)
+    except:
+      pass
+    if len(ball)>2:
+      for i in range(1,len(ball)):
+        cv2.line(frame, ball[i-1], ball[i],(0,0,255),5)
+  out.write(frame)
+out.release()
+```
 
 
 
