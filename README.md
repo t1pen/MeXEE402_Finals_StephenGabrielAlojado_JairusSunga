@@ -49,7 +49,10 @@ test_files = test_files[:5]
 - Morphological Closing is done by Erosion then Dilation. This was done by running `cv2.erode()` to the original image and the eroded image was process using the `cv2.dilate()` for the morphological closing operation to be done.
 
 **Region of Interest**
-- Due to some of the images needed separate operation of erosion and dilation *(depending on the defect)*, we create a code for selecting specific region of interest *(ROI)* for the morphological transformation operations. This was done through the use of the funciton `cv2.selectROI()`. With the program we did we can select the ROI multiple times before saving the final processed image. 
+- Due to some of the images needed separate operation of erosion and dilation *(depending on the defect)*, we create a code for selecting specific region of interest *(ROI)* for the morphological transformation operations. This was done through the use of the funciton `cv2.selectROI()`. With the program we did we can select the ROI multiple times before saving the final processed image.
+
+**Applying Morphological Closing and Opening**
+- We did a code for applying Morphological Closing and Opening with a feature of selecting the ROI of the image. This helps for the enhancing og the PCB traces and identify the operation if it need closing or opening. The class used was `cv2.MORPH_OPEN` and `cv2.MORPH_CLOSE` under the `cv2.morphologyEx()` module.
 
 ## IV. Conclusion
 
@@ -712,6 +715,10 @@ plt.show()
 cv2.destroyAllWindows()
 ```
 ![image](https://github.com/user-attachments/assets/f12b19ee-137c-4e1f-9f22-c9d588e765a4)
+
+**GUI of the Morphological Transformation in a specific Region of Interest**
+
+
 
 
 ## References
