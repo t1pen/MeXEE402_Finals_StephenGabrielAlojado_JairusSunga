@@ -718,8 +718,7 @@ cv2.destroyAllWindows()
 
 **GUI of the Morphological Transformation in a specific Region of Interest**
 
-
-
+![image](https://github.com/user-attachments/assets/0e497504-9203-4108-9a08-6177dff3d716)
 
 ## References
 
