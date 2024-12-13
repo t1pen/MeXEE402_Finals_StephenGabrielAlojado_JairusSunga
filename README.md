@@ -38,6 +38,8 @@
 
 ## V. Additional Materials
 
+### 16 Basic OpenCV Projects
+
 **Navigating to OpenCV Folder**
 
 ```python
@@ -163,6 +165,65 @@ cv2.putText(img,"Alojado_Sunga",(12,480),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),3)
 # Displaying the Image
 cv2_imshow(img)
 ```
+
+
+### Part 2: Intermediate Exercises
+
+**Lesson 1: Color Detection**
+
+```python
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+#BGR Image . It is represented in Blue, Green and Red Channels...
+image = cv2.imread("Images/shapess.png")
+hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+
+# Blue Color
+# lower_hue = np.array([65,0,0])
+# upper_hue = np.array([110, 255,255])
+
+# Red Color
+# lower_hue = np.array([0,0,0])
+# upper_hue = np.array([20,255, 255])
+
+# Green Color
+# lower_hue = np.array([46,0,0])
+# upper_hue = np.array([91,255,255])
+
+# Yellow Color
+lower_hue = np.array([21,0,0])
+upper_hue = np.array([45,255,255])
+
+mask = cv2.inRange(hsv,lower_hue,upper_hue)
+# cv2_imshow(mask)
+result = cv2.bitwise_and(image, image, mask = mask)
+cv2_imshow(result)
+# cv2_imshow(image)
+```
+
+![Color Detection](https://github.com/user-attachments/assets/6fd1ab83-02ba-4406-b283-2bec442e9e0b)
+
+
+**Lesson 2: Face Detection**
+
+```python
+import cv2
+from google.colab.patches import cv2_imshow
+
+face_cascade = cv2.CascadeClassifier("files/haarcascade_frontalface_default.xml")
+# img = cv2.imread("images/person.jpg")
+img = cv2.imread("Images/group.jpg")
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+
+faces = face_cascade.detectMultiScale(gray,1.3,5)
+# print(faces)
+for (x,y,w,h) in faces:
+  cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),3)
+
+cv2_imshow(img)
+```
+
 
 
 - PCB Dat
