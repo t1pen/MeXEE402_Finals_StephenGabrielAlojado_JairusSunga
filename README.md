@@ -456,10 +456,241 @@ for test_file in test_files:
 ![image](https://github.com/user-attachments/assets/139fb8ca-7602-4cb6-83f3-550003003516)
 ![image](https://github.com/user-attachments/assets/d20e8c47-d7c2-4752-bbac-e4a0ca8d92df)
 
+**3. Morphological Dilation and Erosion to a Region of Interest**
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
+def nothing(x):
+    """Dummy function for trackbar callbacks."""
+    pass
 
+def save_image(image, path):
+    """Saves the processed image to a file."""
+    cv2.imwrite(path, image)
+    print(f"Image saved to {path}")
 
+# Load the image in grayscale
+image_path = "00041/00041013_test.jpg"
+original_image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 
+# Check if image is loaded successfully
+if original_image is None:
+    print(f"Error: Image not loaded. Check the file path: {image_path}")
+    exit()
+
+# Resize the image for better visualization
+resize_width = 600
+aspect_ratio = resize_width / original_image.shape[1]
+resize_height = int(original_image.shape[0] * aspect_ratio)
+processed_image = cv2.resize(original_image, (resize_width, resize_height))
+
+# Create control windows
+cv2.namedWindow("Controls", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Controls", 400, 300)  # Set fixed width and height for the Controls window
+cv2.namedWindow("Morphological Operations")
+
+# Create trackbars in the "Controls" window
+cv2.createTrackbar("Threshold", "Controls", 127, 255, nothing)
+cv2.createTrackbar("Kernel Size", "Controls", 3, 20, nothing)
+cv2.createTrackbar("Iterations", "Controls", 1, 10, nothing)
+cv2.createTrackbar("Operation", "Controls", 0, 1, nothing)  # 0 = Erosion, 1 = Dilation
+cv2.createTrackbar("Save", "Controls", 0, 1, nothing)  # 0 = Do not save, 1 = Save
+
+# Allow the user to select and process multiple ROIs
+while True:
+    # Let the user select ROI from the processed image
+    roi = cv2.selectROI("Select ROI", processed_image, showCrosshair=True)
+    if roi == (0, 0, 0, 0):  # No ROI selected
+        print("No ROI selected. Exiting ROI selection mode.")
+        break  # Exit the ROI selection mode
+
+    x, y, w, h = map(int, roi)
+    roi_image = processed_image[y:y+h, x:x+w].copy()  # Create a copy of the selected ROI to prevent issues with trackbars
+
+    # Processing loop for this ROI
+    while True:
+        # Get trackbar positions for settings
+        threshold = cv2.getTrackbarPos("Threshold", "Controls")
+        kernel_size = cv2.getTrackbarPos("Kernel Size", "Controls")
+        iterations = cv2.getTrackbarPos("Iterations", "Controls")
+        operation = cv2.getTrackbarPos("Operation", "Controls")  # 0 = Erosion, 1 = Dilation
+        save_flag = cv2.getTrackbarPos("Save", "Controls")  # Check if Save is triggered
+
+        # Ensure kernel size is odd and not zero
+        kernel_size = max(1, kernel_size)
+        if kernel_size % 2 == 0:
+            kernel_size += 1
+
+        # Apply binary threshold to the ROI
+        _, thresh_image = cv2.threshold(roi_image, threshold, 255, cv2.THRESH_BINARY)
+
+        # Create the kernel
+        kernel = np.ones((kernel_size, kernel_size), np.uint8)
+
+        # Apply erosion or dilation
+        if operation == 0:
+            processed_roi = cv2.erode(thresh_image, kernel, iterations=iterations)
+        else:
+            processed_roi = cv2.dilate(thresh_image, kernel, iterations=iterations)
+
+        # Display the processed image using OpenCV
+        display_image = processed_image.copy()
+        display_image[y:y+h, x:x+w] = processed_roi  # Update the display image with the processed ROI
+
+        cv2.imshow("Morphological Operations", display_image)
+
+        # Save the image if the Save button (trackbar) is triggered
+        if save_flag == 1:
+            processed_image[y:y+h, x:x+w] = processed_roi  # Save the changes to the main image
+            save_image(processed_image, f"processed_image1.jpg")  # Save with a generic name
+            cv2.setTrackbarPos("Save", "Controls", 0)  # Reset the Save button (trackbar) to 0
+            break  # Exit the ROI adjustment loop to select another ROI
+
+        key = cv2.waitKey(1) & 0xFF
+        if key == 27:  # Exit on ESC
+            break
+
+    if key == 27:  # Exit if ESC is pressed
+        break
+
+# Display the original and final processed image using matplotlib
+plt.figure(figsize=(12, 6))
+
+plt.subplot(1, 2, 1)
+plt.imshow(original_image, cmap='gray')
+plt.title("Original Image")
+plt.axis('off')
+
+plt.subplot(1, 2, 2)
+plt.imshow(processed_image, cmap='gray')
+plt.title("Final Processed Image")
+plt.axis('off')
+
+plt.show()
+
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/3aa0b4e6-6c6d-4b8d-88f7-dd53f2c2cfc6)
+
+**4. Morphological Closing and Opening to a Region of Interest**
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+def nothing(x):
+    """Dummy function for trackbar callbacks."""
+    pass
+
+def save_image(image, path):
+    """Saves the processed image to a file."""
+    cv2.imwrite(path, image)
+    print(f"Image saved to {path}")
+
+# Load the image in grayscale
+image_path = "00041/00041013_test.jpg"
+original_image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+
+# Check if image is loaded successfully
+if original_image is None:
+    print(f"Error: Image not loaded. Check the file path: {image_path}")
+    exit()
+
+# Resize the image for better visualization
+resize_width = 600
+aspect_ratio = resize_width / original_image.shape[1]
+resize_height = int(original_image.shape[0] * aspect_ratio)
+processed_image = cv2.resize(original_image, (resize_width, resize_height))
+
+# Create control windows
+cv2.namedWindow("Controls", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Controls", 400, 300)  # Set fixed width and height for the Controls window
+cv2.namedWindow("Morphological Operations")
+
+# Create trackbars in the "Controls" window
+cv2.createTrackbar("Threshold", "Controls", 127, 255, nothing)
+cv2.createTrackbar("Kernel Size", "Controls", 3, 20, nothing)
+cv2.createTrackbar("Iterations", "Controls", 1, 10, nothing)
+cv2.createTrackbar("Operation", "Controls", 0, 1, nothing)  # 0 = Opening, 1 = Closing
+cv2.createTrackbar("Save", "Controls", 0, 1, nothing)  # 0 = Do not save, 1 = Save
+
+# Allow the user to select and process multiple ROIs
+while True:
+    # Let the user select ROI from the processed image
+    roi = cv2.selectROI("Select ROI", processed_image, showCrosshair=True)
+    if roi == (0, 0, 0, 0):  # No ROI selected
+        print("No ROI selected. Exiting ROI selection mode.")
+        break  # Exit the ROI selection mode
+
+    x, y, w, h = map(int, roi)
+    roi_image = processed_image[y:y+h, x:x+w].copy()  # Create a copy of the selected ROI to prevent issues with trackbars
+
+    # Processing loop for this ROI
+    while True:
+        # Get trackbar positions for settings
+        threshold = cv2.getTrackbarPos("Threshold", "Controls")
+        kernel_size = cv2.getTrackbarPos("Kernel Size", "Controls")
+        iterations = cv2.getTrackbarPos("Iterations", "Controls")
+        operation = cv2.getTrackbarPos("Operation", "Controls")  # 0 = Opening, 1 = Closing
+        save_flag = cv2.getTrackbarPos("Save", "Controls")  # Check if Save is triggered
+
+        # Ensure kernel size is odd and not zero
+        kernel_size = max(1, kernel_size)
+        if kernel_size % 2 == 0:
+            kernel_size += 1
+
+        # Apply binary threshold to the ROI
+        _, thresh_image = cv2.threshold(roi_image, threshold, 255, cv2.THRESH_BINARY)
+
+        # Create the kernel
+        kernel = np.ones((kernel_size, kernel_size), np.uint8)
+
+        # Apply opening or closing
+        if operation == 0:
+            processed_roi = cv2.morphologyEx(thresh_image, cv2.MORPH_OPEN, kernel, iterations=iterations)
+        else:
+            processed_roi = cv2.morphologyEx(thresh_image, cv2.MORPH_CLOSE, kernel, iterations=iterations)
+
+        # Display the processed image using OpenCV
+        display_image = processed_image.copy()
+        display_image[y:y+h, x:x+w] = processed_roi  # Update the display image with the processed ROI
+
+        cv2.imshow("Morphological Operations", display_image)
+
+        # Save the image if the Save button (trackbar) is triggered
+        if save_flag == 1:
+            processed_image[y:y+h, x:x+w] = processed_roi  # Save the changes to the main image
+            save_image(processed_image, f"processed_image.jpg")  # Save with a generic name
+            cv2.setTrackbarPos("Save", "Controls", 0)  # Reset the Save button (trackbar) to 0
+            break  # Exit the ROI adjustment loop to select another ROI
+
+        key = cv2.waitKey(1) & 0xFF
+        if key == 27:  # Exit on ESC
+            break
+
+    if key == 27:  # Exit if ESC is pressed
+        break
+
+# Display the original and final processed image using matplotlib
+plt.figure(figsize=(12, 6))
+
+plt.subplot(1, 2, 1)
+plt.imshow(original_image, cmap='gray')
+plt.title("Original Image")
+plt.axis('off')
+
+plt.subplot(1, 2, 2)
+plt.imshow(processed_image, cmap='gray')
+plt.title("Final Processed Image")
+plt.axis('off')
+
+plt.show()
+
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/f12b19ee-137c-4e1f-9f22-c9d588e765a4)
 
 
 ## References
