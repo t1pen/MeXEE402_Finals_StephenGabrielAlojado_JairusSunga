@@ -52,9 +52,7 @@ a
 - Lesson 1: Changing Image's Color Profiles and Lesson 2: Edge Detection
  **butterfly**
 
-<p align="center">
   ![butterfly](https://github.com/user-attachments/assets/1c211bc9-9922-4678-b7eb-37da1fe3e93a)
-</p>
 
 - Lesson 3: Image Manipulation
   **Bear**
