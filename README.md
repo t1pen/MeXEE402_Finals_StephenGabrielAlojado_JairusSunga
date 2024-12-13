@@ -30,9 +30,7 @@
 
 ## III. Project Methods
 
-### Part 1: 16 Basic OpenCV Projects
 
-### Part 2: Applying Morphological Transformation for Enhancing PCB Traces
 
 ## IV. Conclusion
 
@@ -51,21 +49,24 @@
   - **Erosion:** Erosion reduces the size of the foreground objects. It can be useful for shrinking unwanted blobs or narrow structures that are not part of the PCB trace.
   - **Opening:** This operation involves erosion followed by dilation, and is effective in removing small noise points without affecting larger connected structures. It is especially useful for cleaning up noisy or irrelevant areas in PCB images.
   - **Closing:** A combination of dilation followed by erosion, which is useful for closing small gaps or holes in the PCB traces, ensuring proper connections between trace segments.
-Selecting Region of Interest (ROI):
 
-ROI selection is crucial in applying the right morphological operation depending on the specific problem being addressed (e.g., removing short circuits, connecting traces, cleaning noise).
-By carefully selecting the ROI, you can focus the operation on relevant sections of the image, which helps in applying precise transformations without affecting the whole PCB layout.
-Practical Application in PCB Analysis:
+- **Selecting Region of Interest (ROI):**
 
-Morphological operations like dilation, erosion, opening, and closing are valuable tools for enhancing PCB trace analysis. These operations can help in detecting issues like missing connections, unwanted short circuits, or trace discontinuities.
-The choice of operation depends on the problem at hand—whether it's about removing noise, connecting broken traces, or cleaning up the layout.
-Personal Experience in Image Processing:
+  - ROI selection is crucial in applying the right morphological operation depending on the specific problem being addressed (e.g., removing short circuits, connecting traces, cleaning noise).
+  - By carefully selecting the ROI, you can focus the operation on relevant sections of the image, which helps in applying precise transformations without affecting the whole PCB layout.
 
-Working with morphological operations has provided a great experience in understanding how image processing techniques can be applied programmatically. The ability to manipulate images at a pixel level using code has been an invaluable learning experience in the context of PCB trace enhancement and other practical applications.
+- **Practical Application in PCB Analysis:**
+
+  - Morphological operations like dilation, erosion, opening, and closing are valuable tools for enhancing PCB trace analysis. These operations can help in detecting issues like missing connections, unwanted short circuits, or trace discontinuities.
+  - The choice of operation depends on the problem at hand—whether it's about removing noise, connecting broken traces, or cleaning up the layout.
+
+- **Personal Experience in Image Processing:**
+
+  - Working with morphological operations has provided a great experience in understanding how image processing techniques can be applied programmatically. The ability to manipulate images at a pixel level using code has been an invaluable learning experience in the context of PCB trace enhancement and other practical applications.
 
 ## V. Additional Materials
 
-### 16 Basic OpenCV Projects
+###  Part 1: 16 Basic OpenCV Projects
 
 **Navigating to OpenCV Folder**
 
@@ -335,79 +336,62 @@ while cap.isOpened():
 out.release()
 ```
 
+
+
 ![image](https://github.com/user-attachments/assets/2d803592-0e13-43ec-ab7e-2dc8b939d896)
 
-- Tracks the movement of a ball in a video
+### Part 2: Applying Morphological Transformation for Enhancing PCB Traces
 
-
-**Project 2: Face Recognition**
-
+**Global Processing Morphological Dilation**
 ```python
-!pip install face_recognition
-%cd face_recognition
-```
-
-- Install Face Recognition
-
-```python
-import face_recognition
-import numpy as np
-from google.colab.patches import cv2_imshow
+import os
 import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
-# Creating the encoding profiles
-face_1 = face_recognition.load_image_file("Face/Jairus.jpg")
-face_1_encoding = face_recognition.face_encodings(face_1)[0]
+# Step 1: Specify the folder path
+folder_path = "00041"
 
-face_2 = face_recognition.load_image_file("Face/Stephen.jpg")
-face_2_encoding = face_recognition.face_encodings(face_2)[0]
+# Step 2: List and filter files with "test" in their name
+all_files = os.listdir(folder_path)
+test_files = [file for file in all_files if "test" in file]
+test_files = test_files[:5]
 
-face_3 = face_recognition.load_image_file("Face/Kathryn.jpg")
-face_3_encoding = face_recognition.face_encodings(face_3)[0]
+# Step 3: Define the kernel for morphological operations
+kernel = np.ones((3, 3), np.uint8)
 
-known_face_encodings = [
-                        face_1_encoding,
-                        face_2_encoding,
-                        face_3_encoding
-]
+# Step 4: Process each filtered file
+for test_file in test_files:
+    file_path = os.path.join(folder_path, test_file)
+    
+    # Read the image in grayscale
+    image = cv2.imread(file_path, cv2.IMREAD_GRAYSCALE)
+    if image is None:
+        print(f"Failed to read image: {test_file}")
+        continue
+    
+    # Resize the image for manageability
+    resized_image = cv2.resize(image, (0, 0), fx=0.5, fy=0.5)
 
-known_face_names = [
-                    "Jairus Sunga",
-                    "Stephen Grabirel Alojado",
-                    "Kathryn Bernardo"
-]
+    # Apply dilation to enhance the traces
+    cleaned_image = cv2.dilate(resized_image, kernel, iterations=2)
+
+    # Step 5: Display the original image and the result after dilation
+    plt.figure(figsize=(12, 6))
+    plt.subplot(1, 2, 1)
+    plt.imshow(resized_image, cmap='gray')
+    plt.title(f"Original Image: {test_file}")
+    plt.axis('off')
+    
+    plt.subplot(1, 2, 2)
+    plt.imshow(cleaned_image, cmap='gray')
+    plt.title(f"Cleaned Image: {test_file}")
+    plt.axis('off')
+    
+    plt.show()
 ```
+![image](https://github.com/t1pen/MeXEE402_Finals_StephenGabrielAlojado_JairusSunga/blob/main/Revised%20Topic/Outputs/1A.png?raw=true)
 
-- creates encoding profiles for three faces
-
-
-```python
-file_name = "Face/Unknown_Kat.jpg"
-unknown_image = face_recognition.load_image_file(file_name)
-unknown_image_to_draw = cv2.imread(file_name)
-
-face_locations = face_recognition.face_locations(unknown_image)
-face_encodings = face_recognition.face_encodings(unknown_image, face_locations)
-
-for (top,right, bottom, left), face_encoding in zip(face_locations, face_encodings):
-  matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
-
-  name = "Unknown"
-
-  face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-  best_match_index = np.argmin(face_distances)
-  if matches[best_match_index]:
-    name = known_face_names[best_match_index]
-  cv2.rectangle(unknown_image_to_draw, (left, top), (right, bottom),(0,255,0),3)
-  cv2.putText(unknown_image_to_draw,name, (left, top-20), cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),2, cv2.LINE_AA)
-
-cv2_imshow(unknown_image_to_draw)
-```
-
-![Face Recognition](https://github.com/user-attachments/assets/090e8336-10e8-4dc4-a4fb-bcc3009f3e61)
-
-
-- loads an unknown image, detects faces, and compares the face encodings with known face profiles.
 
 
 
