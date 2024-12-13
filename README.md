@@ -38,9 +38,12 @@
 
 ## Additional Materials
 
-- Lesson 1: Changing Image's Color Profiles
+- Lesson 1: Changing Image's Color Profiles and Lesson 2: Edge Detection
   
 ![butterfly](https://github.com/user-attachments/assets/1c211bc9-9922-4678-b7eb-37da1fe3e93a)
+
+
+
 
 
 
