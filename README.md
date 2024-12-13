@@ -91,10 +91,7 @@ cv2_imshow(HSV)
 
 ### Part 1: 16 Basic OpenCV Projects
 
-- Lesson 1: Changing Image's Color Profiles and Lesson 2: Edge Detection
- **butterfly**
-
-  ![butterfly](https://github.com/user-attachments/assets/1c211bc9-9922-4678-b7eb-37da1fe3e93a)
+[butterfly: Lesson 1 & 2](https://www.vecteezy.com/free-photos/real-butterfly)
 
 - Lesson 3: Image Manipulation
   **Bear**
