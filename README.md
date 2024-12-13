@@ -114,6 +114,20 @@ display = np.hstack((canny_image,dilate_image,erode_image))
 cv2_imshow(display)
 ```
 
+**Lesson 3: Image Manipulation**
+
+```python
+import cv2
+from google.colab.patches import cv2_imshow
+import numpy as np
+
+image = cv2.imread("Images/Bear.jpg")
+# cv2_imshow(image)
+dst = cv2.fastNlMeansDenoisingColored(image, None, 15, 20, 7, 15)
+
+display = np.hstack((image, dst))
+cv2_imshow(display)
+```
 
 
 - PCB Dat
