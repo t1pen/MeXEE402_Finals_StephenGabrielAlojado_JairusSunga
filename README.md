@@ -308,10 +308,76 @@ while cap.isOpened():
 out.release()
 ```
 
-
-
 ![image](https://github.com/user-attachments/assets/2d803592-0e13-43ec-ab7e-2dc8b939d896)
 
+- Tracks the movement of a ball in a video
+
+
+**Project 2: Face Recognition**
+
+```python
+!pip install face_recognition
+%cd face_recognition
+```
+
+- Install Face Recognition
+
+```python
+import face_recognition
+import numpy as np
+from google.colab.patches import cv2_imshow
+import cv2
+
+# Creating the encoding profiles
+face_1 = face_recognition.load_image_file("Face/Jairus.jpg")
+face_1_encoding = face_recognition.face_encodings(face_1)[0]
+
+face_2 = face_recognition.load_image_file("Face/Stephen.jpg")
+face_2_encoding = face_recognition.face_encodings(face_2)[0]
+
+face_3 = face_recognition.load_image_file("Face/Kathryn.jpg")
+face_3_encoding = face_recognition.face_encodings(face_3)[0]
+
+known_face_encodings = [
+                        face_1_encoding,
+                        face_2_encoding,
+                        face_3_encoding
+]
+
+known_face_names = [
+                    "Jairus Sunga",
+                    "Stephen Grabirel Alojado",
+                    "Kathryn Bernardo"
+]
+```
+
+- creates encoding profiles for three faces
+
+
+```python
+file_name = "Face/Unknown_Kat.jpg"
+unknown_image = face_recognition.load_image_file(file_name)
+unknown_image_to_draw = cv2.imread(file_name)
+
+face_locations = face_recognition.face_locations(unknown_image)
+face_encodings = face_recognition.face_encodings(unknown_image, face_locations)
+
+for (top,right, bottom, left), face_encoding in zip(face_locations, face_encodings):
+  matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+
+  name = "Unknown"
+
+  face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+  best_match_index = np.argmin(face_distances)
+  if matches[best_match_index]:
+    name = known_face_names[best_match_index]
+  cv2.rectangle(unknown_image_to_draw, (left, top), (right, bottom),(0,255,0),3)
+  cv2.putText(unknown_image_to_draw,name, (left, top-20), cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),2, cv2.LINE_AA)
+
+cv2_imshow(unknown_image_to_draw)
+```
+
+- loads an unknown image, detects faces, and compares the face encodings with known face profiles.
 
 
 
