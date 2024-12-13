@@ -44,6 +44,7 @@
 
 - Lesson 3: Image Manipulation
 
+![Bear](https://github.com/user-attachments/assets/68ef1a19-5dc4-4002-9ce9-fd7b7cc4bd8e)
 
 
 
