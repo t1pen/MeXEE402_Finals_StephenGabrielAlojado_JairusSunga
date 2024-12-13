@@ -116,6 +116,8 @@ cv2_imshow(display)
 
 **Lesson 3: Image Manipulation**
 
+- Applies a non-local means denoising filter
+
 ```python
 import cv2
 from google.colab.patches import cv2_imshow
