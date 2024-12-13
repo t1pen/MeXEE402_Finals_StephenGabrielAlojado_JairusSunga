@@ -65,6 +65,40 @@
 
 - Face Recognition
 
+*Known Faces*
+
+**Jairus**
+
+![Jairus](https://github.com/user-attachments/assets/d1dcebdf-9d9a-437d-a430-7e4ed52119e0)
+
+**Stephen**
+
+![Stephen](https://github.com/user-attachments/assets/7d098dad-97d8-4045-828c-b0b2859243d6)
+
+**Kathryn**
+
+![Kathryn](https://github.com/user-attachments/assets/58795774-a3d3-4ea7-928a-5524f0f65c8d)
+
+*Unknown Faces*
+
+**Unknown_Jai**
+
+![Unknown_Jai](https://github.com/user-attachments/assets/6ef5b267-4b5a-4a44-9b4d-650521150b6f)
+
+**Unknown_Step**
+
+![Unknown_step](https://github.com/user-attachments/assets/0b6904b2-01a8-496e-9bd0-867b6f7d104e)
+
+**Unknown_Kat**
+
+![Unknown_Kat](https://github.com/user-attachments/assets/a20d9c50-2cc5-4d76-a9de-12d3b2cedc66)
+
+
+
+
+
+
+
 
 
 
