@@ -45,7 +45,7 @@
 
 ## References
 
-**Part 1**
+### Part 1: 16 Basic OpenCV Projects
 
 - Lesson 1: Changing Image's Color Profiles and Lesson 2: Edge Detection
  **butterfly**
@@ -57,7 +57,7 @@
 
 ![Bear](https://github.com/user-attachments/assets/68ef1a19-5dc4-4002-9ce9-fd7b7cc4bd8e)
 
-**Part 2**
+**Intermediate Exercises**
 
 - Lesson 1: Color Detection and Lesson 3: Shape Detection
   **shapess**
